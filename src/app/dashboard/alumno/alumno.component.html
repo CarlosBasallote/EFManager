@@ -1,0 +1,21 @@
+<div class="grd">
+  <div class="grd-row">
+    <div class="grd-row-col-2">
+        <h1>Alumnos</h1>
+    </div>
+    <div class="grd-row-col-4">
+      <div class="container">
+        <div class="media" *ngFor="let alumno of alumnos">
+          
+          <div class="media-body">
+            <p>{{alumno.data.nombre}}</p>
+            <div class="btn--group">
+              <button class="btn--green btn--s btn1">Editar</button>
+              <button class="btn--red btn--s btn2">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

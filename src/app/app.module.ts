@@ -16,6 +16,9 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import { AgmCoreModule } from '@agm/core';
 
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+
 import {
   MatSidenavModule,
   MatCardModule,
@@ -46,6 +49,8 @@ import {
 
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
+import { CursosComponent } from './dashboard/cursos/cursos.component';
+import { AlumnoComponent } from './dashboard/alumno/alumno.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -70,7 +75,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AuthLayoutComponent,
     AccordionAnchorDirective,
     AccordionLinkDirective,
-    AccordionDirective,
+    AccordionDirective
   ],
   imports: [
     BrowserModule,
@@ -101,7 +106,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FlexLayoutModule,
     BidiModule,
     AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'}),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
   ],
   providers: [
     {
