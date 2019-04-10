@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+  <p>Introduzca nombre del curso</p>
+  <mat-form-field (ngSubmit)="newCurso()">
+    <input matInput [(ngModel)]="nombre">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="newCurso()" type="submit" [mat-dialog-close]="nombre" cdkFocusInitial>Ok</button>
+</div>

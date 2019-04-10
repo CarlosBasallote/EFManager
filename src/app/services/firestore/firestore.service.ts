@@ -1,6 +1,9 @@
+import { CursoDto } from '../../dashboard/cursos/dto/curso.dto';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
+
+const url = '/cursos';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +14,10 @@ export class FirestoreService {
     ) { }
 
   //Crea un nuevo curso
-  public createCurso(data: {CursoDto}) {
-    return this.firestore.collection('cursos').add(data);
+  public createCurso(data: CursoDto) {
+    console.log(data);
+    return this.firestore.collection(url).add(data);
+
   }
   //Obtiene un curso
   public getCurso(documentId: string) {

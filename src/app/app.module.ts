@@ -31,7 +31,8 @@ import {
   MatListModule,
   MatSlideToggleModule,
   MatSelectModule,
-  MatProgressBarModule } from '@angular/material';
+  MatProgressBarModule, 
+  MatDialogModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {BidiModule} from '@angular/cdk/bidi';
 
@@ -51,6 +52,7 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 import { CursosComponent } from './dashboard/cursos/cursos.component';
 import { AlumnoComponent } from './dashboard/alumno/alumno.component';
+import { CreateCursoComponent } from './dashboard/cursos/create-curso/create-curso.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -99,6 +101,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
+    MatDialogModule,
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,

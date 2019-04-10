@@ -1,5 +1,8 @@
+import { CursoDto } from './dto/curso.dto';
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../services/firestore/firestore.service';
+import { CreateCursoComponent } from './create-curso/create-curso.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-cursos',
@@ -11,7 +14,7 @@ export class CursosComponent implements OnInit {
   public cursos=[];
 
   constructor(
-    private firestoreService: FirestoreService
+    private firestoreService: FirestoreService, public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -28,4 +31,10 @@ export class CursosComponent implements OnInit {
       });
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateCursoComponent, {
+      width: '250px'
+    });
+
+  }
 }
