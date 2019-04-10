@@ -16,7 +16,10 @@ export class FirestoreService {
   //Crea un nuevo curso
   public createCurso(data: CursoDto) {
     console.log(data);
-    return this.firestore.collection(url).add(data);
+    return this.firestore.collection(url).add({
+      nombre: data.nombre,
+      alumnos: data.alumnos
+  });
 
   }
   //Obtiene un curso

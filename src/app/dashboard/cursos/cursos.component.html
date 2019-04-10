@@ -9,7 +9,7 @@
         <div class="media" *ngFor="let curso of cursos">
           
           <div class="media-body">
-            <p>{{curso.data.nombre}}</p>
+            <a  routerLink="/detail/{{curso.id}}">{{curso.data.nombre}}</a>
             <div class="btn--group">
               <button class="btn--green btn--s btn1">Editar</button>
               <button class="btn--red btn--s btn2">Eliminar</button>

@@ -50,9 +50,6 @@ import {
 
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
-import { CursosComponent } from './dashboard/cursos/cursos.component';
-import { AlumnoComponent } from './dashboard/alumno/alumno.component';
-import { CreateCursoComponent } from './dashboard/cursos/create-curso/create-curso.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -77,7 +74,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AuthLayoutComponent,
     AccordionAnchorDirective,
     AccordionLinkDirective,
-    AccordionDirective
+    AccordionDirective,
   ],
   imports: [
     BrowserModule,

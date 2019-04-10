@@ -17,6 +17,7 @@ import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dia
 import { CreateCursoComponent } from './cursos/create-curso/create-curso.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CursoDetailComponent } from '../curso-detail/curso-detail.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatDialogModule,
     FormsModule
   ],
-  declarations: [ DashboardComponent, CursosComponent, AlumnoComponent, CreateCursoComponent ],
+  declarations: [ DashboardComponent, CursosComponent, AlumnoComponent, CreateCursoComponent, CursoDetailComponent ],
   providers: [FirestoreService, AngularFirestore,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}]
 
   ,entryComponents: [
