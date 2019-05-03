@@ -10,9 +10,12 @@
           
           <div class="media-body">
             <a  routerLink="/detail/{{curso.id}}">{{curso.data.nombre}}</a>
+            <li *ngFor="let alumno of curso.data.alumnos">
+              <a routerLink="/detail/{{curso.id}}">{{getAlumno(alumno)}}</a>
+            </li>
             <div class="btn--group">
-              <button class="btn--green btn--s btn1">Editar</button>
-              <button class="btn--red btn--s btn2">Eliminar</button>
+              <button class="btn--green btn--s btn1" (click)="editCurso(curso)">Editar</button>
+              <button class="btn--red btn--s btn2" (click)="deleteCurso(curso.id)" >Eliminar</button>
             </div>
           </div>
         </div>

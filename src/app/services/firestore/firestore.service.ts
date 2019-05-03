@@ -1,3 +1,4 @@
+import { AlumnoDto } from './../../dashboard/alumno/dto/alumno.dto';
 import { CursoDto } from '../../dashboard/cursos/dto/curso.dto';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
@@ -22,6 +23,11 @@ export class FirestoreService {
   });
 
   }
+
+  public deleteCat(documentId: string){
+    return this.firestore.collection(url).doc(documentId).delete();
+  }
+
   //Obtiene un curso
   public getCurso(documentId: string) {
     return this.firestore.collection('cursos').doc(documentId).snapshotChanges();
@@ -53,4 +59,3 @@ export class FirestoreService {
     return this.firestore.collection('alumnos').doc(documentId).set(data);
   }
 }
-

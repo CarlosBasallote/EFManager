@@ -13,6 +13,7 @@ export class CreateCursoComponent implements OnInit {
   nombre: string;
 
   ngOnInit() {
+    
   }
 
   constructor(

@@ -8,6 +8,6 @@ export class CursoDto{
         this.nombre = nombreCurso;
         this.alumnos = [];
     }
-
+ 
     
 }

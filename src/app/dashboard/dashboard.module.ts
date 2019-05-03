@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule, MatCardModule, MatButtonModule, MatListModule, MatProgressBarModule, MatMenuModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
-
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutes } from './dashboard.routing';
 import { CursosComponent } from './cursos/cursos.component';
@@ -18,6 +17,7 @@ import { CreateCursoComponent } from './cursos/create-curso/create-curso.compone
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CursoDetailComponent } from '../curso-detail/curso-detail.component';
+import { EditCursoComponent } from './cursos/edit-curso/edit-curso.component';
 
 @NgModule({
   imports: [
@@ -36,11 +36,12 @@ import { CursoDetailComponent } from '../curso-detail/curso-detail.component';
     MatDialogModule,
     FormsModule
   ],
-  declarations: [ DashboardComponent, CursosComponent, AlumnoComponent, CreateCursoComponent, CursoDetailComponent ],
+  declarations: [ DashboardComponent, CursosComponent, AlumnoComponent, CreateCursoComponent,EditCursoComponent, CursoDetailComponent ],
   providers: [FirestoreService, AngularFirestore,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}]
 
   ,entryComponents: [
-    CreateCursoComponent
+    CreateCursoComponent,
+    EditCursoComponent
   ],
 
 
