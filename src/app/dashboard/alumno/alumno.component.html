@@ -1,21 +1,50 @@
 <div class="grd">
-  <div class="grd-row">
+  <div class="grd-row" fxLayout="column" fxLayoutAlign="start space-between" fxLayoutGap="10px">
     <div class="grd-row-col-2">
-        <h1>Alumnos</h1>
+      <h1 fxLayout="row" fxLayoutGap="100px">
+        <span>ALUMNOS</span>
+
+
+      </h1>
     </div>
-    <div class="grd-row-col-4">
-      <div class="container">
-        <div class="media" *ngFor="let alumno of alumnos">
-          
-          <div class="media-body">
-            <p>{{alumno.data.nombre}}</p>
-            <div class="btn--group">
-              <button class="btn--green btn--s btn1">Editar</button>
-              <button class="btn--red btn--s btn2">Eliminar</button>
-            </div>
-          </div>
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row" fxLayoutAlign="start space-around" class="grd-row-col-4">
+      <mat-list role="list" class="container">
+        <div class="media" *ngFor="let alumno of alumnos" fxLayout="column" fxLayoutAlign="start space-between"
+          fxLayoutGap="10px">
+
+          <mat-item role="listitem" class="media-body" fxLayout="column" fxLayoutAlign="start space-between"
+            fxLayoutGap="10px">
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style" fxLayoutGap="20px">
+              <a mat-flat-button color="basic">{{alumno.data.nombre}}</a>
+              <a mat-flat-button color="basic" *ngIf="alumno.data.nota_fisica">Fisico: {{alumno.data.nota_fisica}}</a>
+              <a mat-flat-button color="basic" *ngIf="!alumno.data.nota_fisica">Fisico: -</a>
+              <a mat-flat-button color="basic" *ngIf="alumno.data.nota_resistencia">Resistencia: {{alumno.data.nota_resistencia}}</a>
+              <a mat-flat-button color="basic" *ngIf="!alumno.data.nota_resistencia">Resistencia: -</a>
+              <button mat-stroked-button color="primary" (click)="editAlumno(alumno)">Editar</button>
+              <button mat-stroked-button color="warn" (click)="openConfirmationDialog(alumno.id)">Eliminar</button>
+              <button mat-stroked-button color="success" (click)="editNota(alumno)">Editar notas</button>
+
+            </mat-button-toggle-group>
+
+          </mat-item>
+          <br>
         </div>
-      </div>
+
+      </mat-list>
+
+    </div>
+
+
+    <mat-divider></mat-divider>
+
+    <div fxFlex="20%" fxLayout="row" fxLayoutAlign="start start">
+
+      <button (click)="openDialog()" class="btn--blue btn--s btn1" mat-flat-button color="primary">
+        <mat-icon>add</mat-icon>
+        Añadir alumno
+      </button>
     </div>
   </div>
 </div>

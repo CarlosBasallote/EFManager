@@ -1,25 +1,41 @@
 <div class="grd">
-  <div class="grd-row">
-    <div class="grd-row-col-2">
-        <h1>CURSOS</h1>
-        <button (click)="openDialog()" class="btn--blue btn--s btn1">Añadir curso</button>
+  <div class="grd-row" fxLayout="column" fxLayoutAlign="start space-between" fxLayoutGap="10px">
+    <div class="grd-row-col-2" >
+      <h1 fxLayout="row" fxLayoutGap="100px">
+      <span>CURSOS</span>
+      
+      
+    </h1>
     </div>
-    <div class="grd-row-col-4">
-      <div class="container">
-        <div class="media" *ngFor="let curso of cursos">
-          
-          <div class="media-body">
-            <a  routerLink="/detail/{{curso.id}}">{{curso.data.nombre}}</a>
-            <li *ngFor="let alumno of curso.data.alumnos">
-              <a routerLink="/detail/{{curso.id}}">{{getAlumno(alumno)}}</a>
-            </li>
-            <div class="btn--group">
-              <button class="btn--green btn--s btn1" (click)="editCurso(curso)">Editar</button>
-              <button class="btn--red btn--s btn2" (click)="deleteCurso(curso.id)" >Eliminar</button>
-            </div>
-          </div>
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row" fxLayoutAlign="start space-around" class="grd-row-col-4">
+      <mat-list role="list" class="container" >
+        <div class="media" *ngFor="let curso of cursos" fxLayout="column" fxLayoutAlign="start space-between" fxLayoutGap="10px">
+
+          <mat-item role="listitem" class="media-body" fxLayout="column" fxLayoutAlign="start space-between" fxLayoutGap="10px">
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style" fxLayoutGap="20px">
+              <a mat-flat-button color="basic">{{curso.data.nombre}}</a>
+              <button mat-stroked-button color="primary" (click)="editCurso(curso)">Editar</button>
+              <button mat-stroked-button color="warn" (click)="openConfirmationDialog(curso.id)">Eliminar</button>
+              <button mat-stroked-button color="basic" (click)="getAlumnosCurso(curso)">Alumnos</button>
+            </mat-button-toggle-group>
+
+          </mat-item>
+          <br>
         </div>
-      </div>
+
+      </mat-list>
+
+    </div>
+
+    
+    <mat-divider></mat-divider>
+   
+    <div fxFlex="20%" fxLayout="row" fxLayoutAlign="start start">
+
+      <button  (click)="openDialog()" class="btn--blue btn--s btn1" mat-flat-button color="primary"><mat-icon>add</mat-icon>
+        Añadir curso</button>
     </div>
   </div>
 </div>

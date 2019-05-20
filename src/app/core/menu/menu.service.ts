@@ -23,15 +23,15 @@ export interface Menu {
 const MENUITEMS = [
   {
     state: '/',
-    name: 'HOME',
+    name: 'Cursos',
     type: 'link',
-    icon: 'explore'
+    icon: 'home'
   },
   {
-    state: 'http://primer.nyasha.me/docs',
-    name: 'DOCS',
-    type: 'extTabLink',
-    icon: 'local_library'
+    state: 'alumnos',
+    name: 'Alumnos',
+    type: 'link',
+    icon: 'supervisor_account'
   }
 ];
 

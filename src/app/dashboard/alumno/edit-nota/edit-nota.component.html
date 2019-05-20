@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+
+  <mat-form-field>
+      <p>Nota física</p>
+
+    <input type="number" name="input" ng-model="example.value"
+    min="0" max="10" matInput [(ngModel)]="nota.nota_fisica" *ngIf="nota" placeholder="Nota en pruebas físicas">
+    <input type="number" name="input" ng-model="example.value"
+    min="0" max="10" matInput *ngIf="!nota">
+
+  </mat-form-field>
+  <mat-form-field>
+      <p>Nota resistencia</p>
+
+      <input type="number" name="input" ng-model="example.value"
+      min="0" max="10" matInput [(ngModel)]="nota.nota_resistencia" *ngIf="nota" placeholder="Nota en pruebas de resistencia">
+      <input type="number" name="input" ng-model="example.value"
+      min="0" max="10" matInput *ngIf="!nota">
+  
+    </mat-form-field>
+</div>  
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="editNota()" type="submit" [mat-dialog-close]="nombre" cdkFocusInitial>Ok</button>
+</div>

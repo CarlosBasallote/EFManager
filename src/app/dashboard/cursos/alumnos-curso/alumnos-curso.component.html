@@ -1,0 +1,9 @@
+<p mat-dialog-title>Alumnos:</p>
+<div mat-dialog-content>
+  <ul *ngFor="let alumno of alumnos">
+    <li>{{alumno.nombre}}</li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+</div>

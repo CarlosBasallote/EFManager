@@ -1,11 +1,11 @@
-import { CursoDto } from './dto/curso.dto';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { FirestoreService } from '../../services/firestore/firestore.service';
 import { CreateCursoComponent } from './create-curso/create-curso.component';
 import {EditCursoComponent} from './edit-curso/edit-curso.component';
-import { MatDialog, MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { Curso } from '../insterfaces/curso.interface';
-import { AlumnoDto } from '../alumno/dto/alumno.dto';
+import { AlumnosCursoComponent } from './alumnos-curso/alumnos-curso.component';
 
 @Component({
   selector: 'app-cursos',
@@ -14,8 +14,7 @@ import { AlumnoDto } from '../alumno/dto/alumno.dto';
 })
 export class CursosComponent implements OnInit {
   public cursos=[];
-  public alumnos=[];
-  alumno: AlumnoDto;
+  dialogRef: MatDialogRef<ConfirmationDialogComponent>;
 
   constructor(
     private firestoreService: FirestoreService, public dialog: MatDialog
@@ -24,6 +23,7 @@ export class CursosComponent implements OnInit {
 
 
   ngOnInit() {
+
     this.firestoreService.getCursos().subscribe(
       (cursosSnapshot)=>{
         this.cursos=[];
@@ -37,7 +37,20 @@ export class CursosComponent implements OnInit {
       });
   }
 
-  
+  openConfirmationDialog(documentId) {
+    this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      disableClose: false
+    });
+    this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?"
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.deleteCurso(documentId);
+      }
+      this.dialogRef = null;
+    });
+  }
+
   public deleteCurso(documentId) {
     this.firestoreService.deleteCat(documentId);
       console.log('Documento eliminado!');
@@ -49,7 +62,7 @@ export class CursosComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateCursoComponent, {
       width: '250px'
     });
-
+    
   }
 
   editCurso(curso:Curso){
@@ -62,12 +75,16 @@ export class CursosComponent implements OnInit {
     });
   }
 
-  getAlumno(referencia: string) {
-    /*this.firestoreService.getAlumno(referencia).subscribe(a => {
-     return "id: "+a.payload.id;
-    });*/
-    return 'hola';
+  getAlumnosCurso(curso: Curso) {
+    const dialogRef = this.dialog.open(AlumnosCursoComponent, {
+      width: '250px',
+      data:{id:curso.id , a:curso.alumnos}
+    });
+    dialogRef.afterClosed().subscribe(result=>{
+      this.cursos;
+    });
   } 
 
-  
+ 
+ 
 }
