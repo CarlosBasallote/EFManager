@@ -1,3 +1,4 @@
+import { CursoDto } from './../cursos/dto/curso.dto';
 import { EditNotaComponent } from './edit-nota/edit-nota.component';
 import { ConfirmaDeleteComponent } from './confirma-delete/confirma-delete.component';
 import { Component, OnInit } from '@angular/core';
@@ -15,9 +16,11 @@ import { Alumno } from '../insterfaces/alumno.interface';
 })
 export class AlumnoComponent implements OnInit {
 
+  nombre: string;
   public alumnos=[];
+  curso: CursoDto;
   dialogRef: MatDialogRef<ConfirmaDeleteComponent>;
-
+  
  
   constructor(
     private firestoreService: FirestoreService, public dialog: MatDialog
@@ -33,8 +36,13 @@ export class AlumnoComponent implements OnInit {
               id: alumnoData.payload.doc.id,
               data: alumnoData.payload.doc.data()
             });
+          
           })
       });
+
+
+      
+
   }
 
   openDialog(): void {
@@ -64,13 +72,7 @@ export class AlumnoComponent implements OnInit {
    
   }
 
-  getAlumno(referencia: string) {
-    console.log(referencia);
-   this.firestoreService.getAlumno(referencia).subscribe(a => {
-     return "id: "+a.payload.data.name;
-    });
-    return "hola";
-  } 
+  
 
   editAlumno(alumno:Alumno){
     const dialogRef = this.dialog.open(EditAlumnoComponent, {

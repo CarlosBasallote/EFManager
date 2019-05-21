@@ -1,9 +1,13 @@
 <div class="grd">
   <div class="grd-row" fxLayout="column" fxLayoutAlign="start space-between" fxLayoutGap="10px">
     <div class="grd-row-col-2" >
-      <h1 fxLayout="row" fxLayoutGap="100px">
+      <h1 fxLayout="row" fxLayoutGap="180px">
       <span>CURSOS</span>
-      
+      <div fxFlex="20%" fxLayout="row" fxLayoutAlign="start start">
+
+        <button  (click)="openDialog()" class="btn--blue btn--s btn1" mat-flat-button color="primary"><mat-icon>add</mat-icon>
+          Añadir curso</button>
+      </div>
       
     </h1>
     </div>
@@ -32,10 +36,6 @@
     
     <mat-divider></mat-divider>
    
-    <div fxFlex="20%" fxLayout="row" fxLayoutAlign="start start">
-
-      <button  (click)="openDialog()" class="btn--blue btn--s btn1" mat-flat-button color="primary"><mat-icon>add</mat-icon>
-        Añadir curso</button>
-    </div>
+    
   </div>
 </div>

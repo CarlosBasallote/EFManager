@@ -1,10 +1,28 @@
 <div mat-dialog-content>
   <mat-form-field>
+    <mat-label>Nombre</mat-label>
+
     <input matInput [(ngModel)]="alumno.nombre" *ngIf="alumno" placeholder="nombre">
     <input matInput *ngIf="!alumno">
 
   </mat-form-field>
-</div>  
+
+  <mat-form-field>
+    <mat-label>Curso</mat-label>
+
+    <mat-select placeholder="Curso" [(ngModel)]="alumno.curso">
+      <mat-option matInput *ngFor="let curso of cursos" [value]="curso.id">
+
+        {{curso.data.nombre}}
+
+      </mat-option>
+
+    </mat-select>
+
+  </mat-form-field>
+
+
+</div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button (click)="editAlumno()" type="submit" [mat-dialog-close]="nombre" cdkFocusInitial>Ok</button>

@@ -57,9 +57,7 @@ export class FirestoreService {
     if (!data.nota_resistencia) {
       data.nota_resistencia = 0;
     }
-    if (!data.curso) {
-      data.curso = null;
-    }
+
     return this.firestore.collection('alumnos').add({
       curso: data.curso,
       nombre: data.nombre,
@@ -83,6 +81,7 @@ export class FirestoreService {
     console.log(documentId);
     return this.firestore.collection("alumnos", ref => ref.where('curso', '==', documentId)).valueChanges() as Observable<AlumnoDto[]>;
   }
+
 
   //Actualiza un alumno
   public updateAlumno(documentId: string, data: any) {

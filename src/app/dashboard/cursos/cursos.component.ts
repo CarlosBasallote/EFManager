@@ -15,6 +15,8 @@ import { AlumnosCursoComponent } from './alumnos-curso/alumnos-curso.component';
 export class CursosComponent implements OnInit {
   public cursos=[];
   dialogRef: MatDialogRef<ConfirmationDialogComponent>;
+  public alumnos=[];
+  contador:number;
 
   constructor(
     private firestoreService: FirestoreService, public dialog: MatDialog
@@ -35,6 +37,9 @@ export class CursosComponent implements OnInit {
             });
           })
       });
+
+      
+
   }
 
   openConfirmationDialog(documentId) {
@@ -85,6 +90,4 @@ export class CursosComponent implements OnInit {
     });
   } 
 
- 
- 
 }

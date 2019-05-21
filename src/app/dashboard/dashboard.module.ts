@@ -23,6 +23,7 @@ import { ConfirmaDeleteComponent } from './alumno/confirma-delete/confirma-delet
 import { CreateAlumnoComponent } from './alumno/create-alumno/create-alumno.component';
 import { EditAlumnoComponent } from './alumno/edit-alumno/edit-alumno.component';
 import { EditNotaComponent } from './alumno/edit-nota/edit-nota.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { EditNotaComponent } from './alumno/edit-nota/edit-nota.component';
     MatInputModule,
     MatFormFieldModule,
     MatListModule,
+    MatSelectModule,
     MatProgressBarModule,
     MatMenuModule,
     FlexLayoutModule,FormsModule,
